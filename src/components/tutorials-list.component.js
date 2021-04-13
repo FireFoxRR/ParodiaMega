@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import TutorialDataService from "../services/tutorial.service";
+import { withRouter } from "react-router";
+import Header from "./header.component";
 
 import Tutorial from "./tutorial.component";
 
-export default class TutorialsList extends Component {
+export default withRouter (class TutorialsList extends Component {
   constructor(props) {
     super(props);
     this.refreshList = this.refreshList.bind(this);
@@ -65,7 +67,11 @@ export default class TutorialsList extends Component {
     const { tutorials, currentTutorial, currentIndex } = this.state;
 
     return (
+      <div>
+                  <Header/>
+
       <div className="list row">
+
         <div className="col-md-6">
           <h4>Archivos</h4>
 
@@ -99,6 +105,7 @@ export default class TutorialsList extends Component {
           )}
         </div>
       </div>
+      </div>
     );
   }
-}
+})

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 //import {useState} from 'react'
 import { storage } from "../firebase";
+import Header from "./header.component";
 
 import TutorialDataService from "../services/tutorial.service";
+import { withRouter, Redirect } from "react-router";
 
   
-export default class AddTutorial extends Component {
+export default withRouter (class AddTutorial extends Component {
 
   constructor(props) {
     super(props);
@@ -117,9 +119,9 @@ export default class AddTutorial extends Component {
 
    // }
     return (
-
-        
       <div className="submit-form">
+            <Header/>
+
         {this.state.submitted ? (
           <div>
             <h4>You submitted successfully!</h4>
@@ -159,6 +161,7 @@ export default class AddTutorial extends Component {
               Submit
             </button>
           </div>
+          
         )}
      
      <div className="App">
@@ -174,4 +177,4 @@ export default class AddTutorial extends Component {
       </div>
     );
   }
-}
+})
